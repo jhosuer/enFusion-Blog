@@ -1,0 +1,35 @@
+@import 'partials/login';
+@import url('https://fonts.googleapis.com/css?family=Dosis|Kumar+One+Outline|Quicksand');
+
+    body {
+        margin: 0 auto;
+        position: relative;
+        font-family: 'Quicksand', sans-serif;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+body::-webkit-scrollbar {
+    width: 1em;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgb(156, 40, 176);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(156, 40, 176);
+  outline: 1px solid rgb(156, 40, 176);
+  border-radius: 10px;
+}
+
+footer {
+    color: #000;
+    text-align: center;
+    position: absolute;
+}
