@@ -48,12 +48,16 @@
       position: relative;
       top: 5px;
       font-size: 11px;
-      color: red; }
-    .rightEnd #signup #signupSuccessMessage {
+      color: red;
+      background: #FDE5EC;
+      padding: 0px 5px; }
+    .rightEnd #signup #SignupSuccessMessage {
       position: relative;
       top: 8px;
       font-size: 11px;
-      color: darkgreen; }
+      color: darkgreen;
+      background: #3EC967;
+      padding: 0px 5px; }
     .rightEnd #signup #loginRedirect {
       position: relative;
       top: 20px;
@@ -83,12 +87,16 @@
       position: relative;
       top: 5px;
       font-size: 11px;
-      color: red; }
+      color: red;
+      background: #FDE5EC;
+      padding: 0px 5px; }
     .rightEnd #login #loginSuccessMessage {
       position: relative;
       top: 8px;
       font-size: 11px;
-      color: darkgreen; }
+      color: darkgreen;
+      background: #3EC967;
+      padding: 0px 5px; }
     .rightEnd #login #signupRedirect {
       position: relative;
       top: 20px;
@@ -102,8 +110,33 @@
     position: fixed;
     bottom: 0; }
 
+/* dashboard */
+html, body, header {
+  width: 100%;
+  padding: 0;
+  margin: 0; }
+
+.dashboardheader {
+  width: 100%;
+  background-color: aquamarine;
+  padding: 0;
+  margin: 0;
+  height: 20%; }
+
+table {
+  width: 100%;
+  margin-top: 8%;
+  padding: 2% 0px; }
+  table thead {
+    border-bottom: 1px solid #ccc;
+    background-color: #f8f8f8;
+    padding: 100px 0px; }
+    table thead tr {
+      padding-bottom: 100px 0px; }
+
 body {
   margin: 0 auto;
+  padding: 0;
   position: relative;
   font-family: 'Quicksand', sans-serif; }
 

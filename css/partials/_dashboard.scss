@@ -1,0 +1,27 @@
+/* dashboard */
+html, body, header {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.dashboardheader {
+    width: 100%;
+    background-color: aquamarine;
+    padding: 0;
+    margin: 0;
+    height: 20%;
+}
+
+table {
+    width: 100%;
+    margin-top: 8%;
+    padding: 2% 0px;
+    thead {
+        border-bottom: 1px solid #ccc;
+        background-color: #f8f8f8;
+        padding: 100px 0px;
+        tr{
+            padding-bottom: 100px 0px;
+        }
+    }
+}

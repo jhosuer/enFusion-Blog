@@ -33,6 +33,8 @@
     top: 5px;
     font-size: 11px;
     color: red;
+    background: #FDE5EC;
+    padding: 0px 5px;
 }
 
 @mixin successMessage() {
@@ -40,6 +42,8 @@
     top: 8px;
     font-size: 11px;
     color: darkgreen;
+    background: #3EC967;
+    padding: 0px 5px;
 }
 
 
@@ -93,7 +97,7 @@
         #signupErrorMessage {
             @include errorMessage();
         }
-        #signupSuccessMessage {
+        #SignupSuccessMessage {
             @include successMessage();
         }
         #loginRedirect {

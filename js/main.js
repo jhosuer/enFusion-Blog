@@ -5,6 +5,7 @@ function init () {
     submitForm();
     changeFormToLogin();
     loginToBlog();
+    toggleSidebar();
    
 }
 
@@ -66,7 +67,7 @@ function submitForm() {
             $("#submit").unbind().bind('click', function(event){
                 event.preventDefault();
                  $.post('http://localhost:3000/users',postData, function(){
-                    $('#signupSuccessMessage').html('form submitted successfully');
+                    $('#SignupSuccessMessage').html('form submitted successfully<br>please login below');
                  });
 
                 $('#signup').trigger('reset');
@@ -115,8 +116,13 @@ function loginToBlog() {
                     $.each(element, function(key,value){
                         if((userCount <= 1) && (element.user == loginUserName) && (element.pass == loginPassword)){
                            // alert(`${element.user} and ${key}`);
+                            $.session.set('some key', loginUserName);
                             userCount++;
-                            return alert(true);
+                            //function pageRedirect() {
+                                window.location.replace("dashboard.html");
+                            //}      
+//                            //setTimeout("pageRedirect()", 10000);
+                            //return alert(true);
                             
                         }
                         else {
@@ -146,4 +152,10 @@ function validateEmail(userName) {
     else {
         return false;
     }
+}
+
+function toggleSidebar() {
+    $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
 }
