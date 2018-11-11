@@ -17,18 +17,19 @@ function submitForm() {
         let passwordFormat = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
         let emailFormat = /^[a-z]+[0-9a-zA-Z_\.]*@[a-z_]+\.[a-z]+$/;
         let postData = {user: userName, pass: password};
+        let validEmail = validateEmail(userName);
         
 //        $.get('http://localhost:3000/users?user='+userName,function(data){alert(JSON.stringify(data))});
-          $.get('http://localhost:3000/users?user='+$(this),function(data){
-              //alert(JSON.stringify(data))
-              let text = data[0];
-              alert(text);
-          });
+
         
-        if(userName != userName.match(emailFormat)) {
-            $("#signupErrorMessage").html(`username must be an email address`);
+        if($.trim(userName).length == 0) {
+            $("#signupErrorMessage").html(`username cannot be an empty field`);
+            
         }
-        if ((userName = '' || password == '')) {
+        if(!validEmail) {
+            $("#signupErrorMessage").html(`username must be an email address`);
+           }
+        if ((password == '')) {
             
             $("#signupErrorMessage").html(`password must be at least 8 letters long,"
                                 "must contain a number, capital letter and a small letter`);
@@ -41,43 +42,47 @@ function submitForm() {
        if(password != cpassword) {
             $("#signupErrorMessage").html(`passwords not equal`);
         }
-        else if((password != '') && ((password == password.match(passwordFormat)))) {
-             
-            $("#signupErrorMessage").html('');
-            
-            $("#submit").click(function(event){
-                  
-                if($.get('http://localhost:3000/users?user='+userName,function(data){JSON.stringify(data)})){
-                    $("#signupErrorMessage").fadeIn().html(`email already exists in database, please login`);
-                    setTimeOut(function (){
-                        $('#signupErrorMessage').fadeOut('slow')
-                        }, 2000);
-                } 
-                else if (!$.get('http://localhost:3000/users?user='+userName,function(data){JSON.stringify(data)})){
-                    $.post('http://localhost:3000/users',postData, function(){
-                        $('#signupSuccessMessage').fadeIn().html('form submitted successfully');
-                        setTimeOut(function (){
-                        $('#signupSuccessMessage').fadeOut('slow')
-                        }, 2000);
-                    });
-                    
-                    $('#signup').trigger('reset');
-
-                }
-         });
         
-        };
+        // verify user starts here
+            let count = 0;
+            $.get('http://localhost:3000/users?user='+userName,function(data){
+              $.each(data, function(index,element){
+                 let verifyUser = JSON.stringify(data[index].user);
+                  count++;
+                  //alert(`${verifyUser} and ${count}`);
+                  if(count >= 1){
+                        $("#signupErrorMessage").html(`email already exists in database, please login`);
+                        //alert("email already exists in database, please login");
+                      $("#submit").unbind().bind('click', function(event){
+                      return false;
+                      });
+                 }
+                
+              });   
+            });
+        
+        if((password == cpassword) && (password != '') && ((password == password.match(passwordFormat)))){
+             $("#signupErrorMessage").html('');
+            $("#submit").unbind().bind('click', function(event){
+                event.preventDefault();
+                 $.post('http://localhost:3000/users',postData, function(){
+                    $('#signupSuccessMessage').html('form submitted successfully');
+                 });
+
+                $('#signup').trigger('reset');
+            });
+        }
     });
 };
 
 function changeFormToLogin() {
     $('#loginRedirect a').on('click', function(){
-        $('#signup').css({'display': 'none', 'transition': 'display 2s ease'});
-        $('#login').css({'display': 'block', 'transition': 'display 2s ease'});
+        $('#signup').css('display', 'none');
+        $('#login').css('display', 'block');
     });
     $('#signupRedirect a').click(function(){
-        $('#login').css({'display': 'none', 'transition': 'display 2s ease'});
-        $('#signup').css({'display': 'block', 'transition': 'display 2s ease'});
+        $('#login').css('display', 'none');
+        $('#signup').css('display', 'block');
     });
 }
 
@@ -89,13 +94,56 @@ function loginToBlog() {
         let loginUserName = $('#loginname').val();
         let loginPassword = $('#loginpassword').val();
         
-        if ((loginUserName = '' || loginPassword == '')) {
+        if ((loginUserName == '' && loginPassword == '')) {
             
             $("#loginErrorMessage").html(`username or password incorrect. Try again`);
         }
-        
-        $("loginSubmit").on('click', function(){
+        if ((loginUserName != '' && loginPassword == '')) {
             
+            $("#loginErrorMessage").html(`All fields must be filled`);
+        }
+        if ((loginUserName == '' && loginPassword != '')) {
+            
+            $("#loginErrorMessage").html(`All fields must be filled`);
+        }
+        if ((loginUserName != '' && loginPassword != '')) {
+            $("#loginErrorMessage").html(``);
+            let userCount = 0;
+            $("#loginSubmit").on('click', function(){
+                $.get('http://localhost:3000/users?user='+loginUserName,function(data){
+                $.each(data, function(index,element){
+                    $.each(element, function(key,value){
+                        if((userCount <= 1) && (element.user == loginUserName) && (element.pass == loginPassword)){
+                           // alert(`${element.user} and ${key}`);
+                            userCount++;
+                            return alert(true);
+                            
+                        }
+                        else {
+                        return false;
+                        }
+//                        if(element.user == loginUserName) {
+//                            return alert(true);
+//                            
+//                        }
+                    });
+
+                });   
+            });
         });
+        }
+            //loginUserName = userName;
     });
+}
+
+
+// Function that validates email address through a regular expression.
+function validateEmail(userName) {
+    let emailFilter = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+    if (emailFilter.test(userName)) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }

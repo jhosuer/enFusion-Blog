@@ -58,7 +58,7 @@
       position: relative;
       top: 20px;
       font-size: 14px;
-      color: red; }
+      color: black; }
       .rightEnd #signup #loginRedirect a {
         text-decoration: none;
         color: #9c28b0; }
@@ -93,7 +93,7 @@
       position: relative;
       top: 20px;
       font-size: 14px;
-      color: red; }
+      color: black; }
       .rightEnd #login #signupRedirect a {
         text-decoration: none;
         color: #9c28b0; }
