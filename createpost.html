@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="content" content="width=device-width">
+        <title>Admin Dashboard</title>
+        <link rel="stylesheet" href="css/bootstrap-4.1.3/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/dashboardsidebar.css">
+        <link rel="stylesheet" href="css/wysiwig.css">
+        <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
+        <!-- Font Awesome JS -->
+        <link rel="icon" href="img/fav.jpg" sizes="16x16 32x32" type="image/png">
+    </head>
+    <body>
+        <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>EnFusion Blog</h3>
+                <strong>EB</strong>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-home"></i>
+                        Dashboard
+                    </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">News Feed</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-copy"></i>
+                        Posts
+                    </a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">All Posts</a>
+                        </li>
+                        <li class="sub-active">
+                            <a href="#">Add New</a>
+                        </li>
+                        <li>
+                            <a href="#">Categories</a>
+                        </li>
+                    </ul>
+                </li>
+               <li>
+                    <a href="#">
+                        <i class="fas fa-images"></i>
+                        Media
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-comment"></i>
+                        Comments
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-user"></i>
+                        Users
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-sliders-h"></i>
+                        Settings
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="#" class="download">Visit Site</a>
+                </li>
+                <li>
+                    <a class="article">&copy; copyright 2018</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-custom">
+                        <i class="fas fa-bars"></i>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fas fa-user-circle"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" id='logout'><i class="fas fa-sign-out-alt"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                <div class="row postField">
+                    <div class="col-md-9 topPost">
+                        <h3>Create A New Post</h3>
+                        <input type="text" placeholder="What is the title of your post?" id="postTitle">
+                        <input type="file" id="postImage">
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="toolbar">
+<!--                                    <span id="heading" class="fa fa-plus"> Heading</span>-->
+                                    <span class="hiddenheading">
+                                    <a href="#" data-command='p'>Paragraph</a>
+                                    <a href="#" data-command='h1'>H1</a>
+                                    <a href="#" data-command='h2'>H2</a>
+                                    <a href="#" data-command='h3'>H3</a>
+                                    <a href="#" data-command='h4'>H4</a>
+                                    <a href="#" data-command='h5'>H5</a>
+                                    <a href="#" data-command='h6'>H6</a>
+                                    </span>
+                                    <span class="hidethem">
+                                    <a href="#" data-command='insertimage'><i class='fa fa-image'></i></a>
+                                    <a href="#" data-command='undo'><i class='fa fa-undo'></i></a>
+                                    <a href="#" data-command='redo'><i class='fa fa-repeat'></i></a>
+                                    <a href="#" data-command='bold'><i class='fa fa-bold'></i></a>
+                                    <a href="#" data-command='italic'><i class='fa fa-italic'></i></a>
+                                    <a href="#" data-command='underline'><i class='fa fa-underline'></i></a>
+                                    <a href="#" data-command='strikeThrough'><i class='fa fa-strikethrough'></i></a>
+                                    <a href="#" data-command='justifyLeft'><i class='fa fa-align-left'></i></a>
+                                    <a href="#" data-command='justifyRight'><i class='fa fa-align-right'></i></a>
+                                    <a href="#" data-command='justifyCenter'><i class='fa fa-align-center'></i></a>
+                                    <a href="#" data-command='justifyFull'><i class='fa fa-align-justify'></i></a>
+                                    <a href="#" data-command='quote'><i class='fa fa-quote-left'></i></a>
+                                    <a href="#" data-command='insertUnorderedList'><i class='fa fa-list-ul'></i></a>
+                                    <a href="#" data-command='insertOrderedList'><i class='fa fa-list-ol'></i></a>
+                                    <a href="#" data-command='createlink'><i class='fa fa-link'></i></a>
+                                    <a href="#" data-command='unlink'><i class='fa fa-unlink'></i></a>
+                                    <a href="#" data-command='subscript'><i class='fa fa-subscript'></i></a>
+                                    <a href="#" data-command='superscript'><i class='fa fa-superscript'></i></a>
+                                    </span>
+                                </span>
+                            </div>
+<!--                            <div id="counter" class="card-body" contenteditable="true"></div>-->
+                            <textarea rows= "10" cols="20" class="card-body" id="counter"></textarea>
+                            <div class="card-footer">
+                                <small>Word counter: <span id="count"></span></small>
+                                <button id="updateButton">Update</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3 bottomPost">
+                        <span id="postAlert"></span>
+                        <div class="card">
+                            <span id="publish">Publish</span>
+                            <hr>
+                            <div id="innerAnchor">
+                            <a href="#" id="saveDraft">Save Draft</a><a href="#">Preview</a>
+                            </div>
+                            <ul>
+                                <li>Status: Draft <a href="#">Edit</a></li>
+                                <li>Visibility: Public <a href="#">Edit</a></li>
+                                <li>Publish immediately <a href="#">Edit</a></li>
+                                <li>Publicize:	Not Connected <a href="#">Edit</a></li>
+                            </ul>
+                            <div class="card-header">
+                                <button type="button" id="publish">Publish</button>
+                            </div>   
+                        </div>
+                           <div class="card bottomCard">
+                            <span>Categories</span>
+                            <hr>
+                            <ul>
+                                <li><input type="checkbox"></li>
+                                <li><input type="checkbox"></li>
+                                <li><input type="checkbox"></li>
+                                <li><input type="checkbox"></li>
+                            </ul>
+                            <div class="card-header">
+                                <a href="#"> Add New</a>
+                                <div></div>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="js/jquery-3.3.1.min.js"></script>
+        
+        <script src="css/bootstrap-4.1.3/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+        <script src="js/jquery.session.js"></script>
+        <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+        <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/update-post.js"></script>
+    </body>
+</html>

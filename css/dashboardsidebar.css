@@ -149,6 +149,11 @@ a[aria-expanded="true"] {
     background: rgb(170, 0, 150);
 }
 
+#sidebar ul li.sub-active>a,
+a[aria-expanded="true"] {
+    font-weight: bold;
+}
+
 a[data-toggle="collapse"] {
     position: relative;
 }

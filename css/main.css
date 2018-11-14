@@ -126,13 +126,197 @@ html, body, header {
 table {
   width: 100%;
   margin-top: 8%;
-  padding: 2% 0px; }
+  text-align: center; }
   table thead {
     border-bottom: 1px solid #ccc;
-    background-color: #f8f8f8;
-    padding: 100px 0px; }
+    background-color: #f8f8f8; }
     table thead tr {
-      padding-bottom: 100px 0px; }
+      background-color: white; }
+      table thead tr td {
+        padding: 1% 0px; }
+        table thead tr td select {
+          border: none;
+          box-shadow: 0px 0px 5px #ccc;
+          width: 120px; }
+      table thead tr .title, table thead tr .date {
+        color: #AA0096; }
+  table tbody tr td {
+    padding: 1% 0px; }
+  table tbody .postDelete, table tbody .postEdit, table tbody .postView {
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+    color: #000;
+    box-shadow: 0px 0px 5px #ccc; }
+  table tfoot tr {
+    background-color: white; }
+    table tfoot tr td {
+      padding: 1% 0px; }
+      table tfoot tr td select {
+        border: none;
+        box-shadow: 0px 0px 5px #ccc;
+        width: 120px; }
+    table tfoot tr .title, table tfoot tr .date {
+      color: #AA0096; }
+
+#addNew {
+  background-color: #fafafa;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 800;
+  font-size: 14px;
+  color: #AA0096;
+  border: 1px solid #ccc;
+  cursor: pointer; }
+
+.searchField .search {
+  text-align: right; }
+  .searchField .search input {
+    border: none;
+    box-shadow: 0px 0px 2px #ccc;
+    padding: 2px 3px; }
+  .searchField .search button {
+    border-radius: 5px;
+    cursor: pointer; }
+
+.postField input[type="text"] {
+  width: 98%;
+  margin-top: 80px;
+  margin-bottom: 50px;
+  padding: 8px 2%;
+  border: none;
+  box-shadow: 0px 0px 2px #ccc; }
+.postField .bottomPost {
+  margin-top: 120px;
+  font-size: 14px; }
+  .postField .bottomPost div {
+    padding: 0px 8px; }
+    .postField .bottomPost div span {
+      font-weight: bold;
+      margin-top: 5px; }
+    .postField .bottomPost div #innerAnchor {
+      display: inline;
+      margin-bottom: 13px; }
+      .postField .bottomPost div #innerAnchor a:nth-child(1) {
+        box-shadow: 0px 0px 5px;
+        padding: 3px 5px;
+        border-radius: 3px;
+        margin-right: 60px;
+        background-color: #f8f8f8; }
+      .postField .bottomPost div #innerAnchor a:nth-child(2) {
+        padding: 3px 5px;
+        border-radius: 3px;
+        box-shadow: 0px 0px 5px;
+        background-color: #f8f8f8; }
+    .postField .bottomPost div ul li {
+      list-style-type: none;
+      font-size: 12px; }
+    .postField .bottomPost div a {
+      color: #9C28B0; }
+  .postField .bottomPost .card-header {
+    text-align: right;
+    padding: 4% 10px;
+    width: 100%; }
+    .postField .bottomPost .card-header button {
+      background-color: #9C28B0;
+      border: 0;
+      border-radius: 3px;
+      cursor: pointer;
+      color: white;
+      box-shadow: 0px 0px 5px; }
+  .postField .bottomPost .card.bottomCard {
+    margin-top: 50px; }
+
+/* blog css */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+
+.topHeader {
+  padding: 3px 0px; }
+  .topHeader img {
+    width: 32px;
+    height: 32px;
+    margin-right: 2px; }
+
+header {
+  background-color: #9C28B0;
+  padding: 20px 0;
+  margin: 0;
+  color: #ffffff;
+  z-index: 1; }
+  header h4 {
+    font-weight: bold; }
+  header nav {
+    width: 100%; }
+    header nav ul {
+      width: 100%; }
+      header nav ul li {
+        list-style-type: none;
+        display: inline;
+        margin-right: 20px; }
+
+section {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100%; }
+  section div {
+    padding: 0 !important;
+    margin: 0 !important; }
+    section div img {
+      width: 100%; }
+  section div.blogTopRow {
+    text-align: center;
+    position: relative;
+    top: 20px; }
+    section div.blogTopRow img {
+      width: 300px;
+      height: 300px;
+      border: 1px solid #ccc;
+      padding: 5px;
+      opacity: 1;
+      margin-top: 40px; }
+    section div.blogTopRow img:hover {
+      opacity: 0.5;
+      transition: opacity 1s ease; }
+    section div.blogTopRow span {
+      width: 400px !important;
+      text-align: left !important;
+      margin: 0 auto !important; }
+    section div.blogTopRow h4 {
+      margin-top: 10px; }
+    section div.blogTopRow a {
+      color: #9C28B0;
+      width: 200px;
+      height: 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      margin: 10px 0px 30px 0px; }
+
+.footer {
+  margin-top: 10px; }
+  .footer h6 {
+    margin-top: 50px;
+    text-align: left; }
+  .footer form {
+    margin-top: 20px; }
+    .footer form input {
+      width: 90%;
+      padding: 10px;
+      height: 40px;
+      border: none;
+      box-shadow: 0px 0px 5px #ccc;
+      border-radius: 5px; }
+    .footer form button {
+      width: 90%;
+      margin-top: 10px;
+      height: 40px;
+      border: none;
+      border-radius: 5px;
+      background-color: #9C28B0;
+      color: #ffffff; }
 
 body {
   margin: 0 auto;

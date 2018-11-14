@@ -15,13 +15,79 @@ html, body, header {
 table {
     width: 100%;
     margin-top: 8%;
-    padding: 2% 0px;
+    text-align: center;
     thead {
         border-bottom: 1px solid #ccc;
         background-color: #f8f8f8;
-        padding: 100px 0px;
         tr{
-            padding-bottom: 100px 0px;
+            background-color: white;
+            td {
+                padding: 1% 0px;
+                select {
+                    border: none;
+                    box-shadow: 0px 0px 5px #ccc;
+                    width: 120px;
+                }
+            }
+            .title, .date {
+                color: #AA0096;
+            }
+        }
+    }
+    tbody {
+        tr {
+            td {
+                padding: 1% 0px;
+            }
+        }
+        .postDelete, .postEdit, .postView {
+            border: none;
+            margin-left: 10px;
+            cursor: pointer;
+            color: #000;
+            box-shadow: 0px 0px 5px #ccc;
+        }
+    }
+    tfoot {
+        tr {
+            background-color: white;
+            td {
+                padding: 1% 0px;
+                select {
+                    border: none;
+                    box-shadow: 0px 0px 5px #ccc;
+                    width: 120px;
+                }
+            }
+            .title, .date {
+                color: #AA0096;
+            }
+        }
+    }
+}
+
+#addNew {
+    background-color: #fafafa;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 800;
+    font-size: 14px;
+    color: #AA0096;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.searchField {
+    .search {
+        text-align: right;
+        input {
+            border: none;
+            box-shadow: 0px 0px 2px #ccc;
+            padding: 2px 3px;
+        }
+        button {
+            border-radius: 5px;
+            cursor: pointer;
         }
     }
 }

@@ -1,0 +1,113 @@
+/* blog css */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.topHeader {
+    padding: 3px 0px;
+    img {
+        width: 32px;
+        height: 32px;
+        margin-right: 2px;
+    }
+}
+header {
+    background-color: #9C28B0;
+    padding: 20px 0;
+    margin: 0;
+    color: #ffffff;
+    z-index: 1;
+    h4 {
+        font-weight: bold;
+    }
+    nav {
+        width: 100%;
+        ul {
+            width: 100%;
+            li{
+                list-style-type: none;
+                display: inline;
+                margin-right: 20px;
+            }
+        }
+    }
+}
+
+section{
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    div {
+        padding: 0 !important;
+        margin: 0 !important;
+        img {
+            width: 100%;
+        }
+    }
+    div.blogTopRow {
+        text-align: center;
+        position: relative;
+        top: 20px;
+        img {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            opacity: 1;
+            margin-top: 40px;
+            
+            
+        }
+        img:hover {
+            opacity: 0.5;
+            transition: opacity 1s ease;
+        }
+        span {
+            width: 400px !important;
+            text-align: left !important;
+            margin: 0 auto !important;
+        }
+        h4 {
+            margin-top: 10px;
+        }
+        a {
+            color: #9C28B0;
+            width: 200px;
+            height: 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0px 30px 0px;
+        }
+    }
+}
+
+
+.footer {
+    margin-top: 10px;
+    h6{
+        margin-top: 50px;
+        text-align: left;
+    }
+    form{
+        margin-top: 20px;
+        input{
+            width: 90%;
+            padding: 10px;
+            height: 40px;
+            border: none;
+            box-shadow: 0px 0px 5px #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 90%;
+            margin-top: 10px;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            background-color: #9C28B0;
+            color: #ffffff;
+        }
+    }
+}

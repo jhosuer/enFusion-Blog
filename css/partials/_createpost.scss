@@ -1,0 +1,64 @@
+.postField {
+    input[type="text"] {
+        width: 98%;
+        margin-top: 80px;
+        margin-bottom: 50px;
+        padding: 8px 2%;
+        border: none;
+        box-shadow: 0px 0px 2px #ccc;
+    }
+    .bottomPost {
+        margin-top: 120px;
+        font-size: 14px;
+        div {
+        padding: 0px 8px;
+            span {
+                font-weight: bold;
+                margin-top: 5px;
+                
+            }
+            #innerAnchor {
+                display: inline;
+                margin-bottom: 13px;
+                
+                a:nth-child(1) {
+                    box-shadow: 0px 0px 5px;
+                    padding: 3px 5px;
+                    border-radius: 3px;
+                    margin-right: 60px;
+                    background-color: #f8f8f8;
+                }
+                a:nth-child(2) {
+                    padding: 3px 5px;
+                    border-radius: 3px;
+                    box-shadow: 0px 0px 5px;
+                    background-color: #f8f8f8;
+                }
+            }
+            ul li {
+                list-style-type: none;
+                font-size: 12px;
+            }
+            a {
+                color: #9C28B0;
+                
+            }
+        }
+        .card-header {
+            text-align: right;
+            padding: 4% 10px;
+            width: 100%;
+            button {
+                background-color: #9C28B0;
+                border: 0;
+                border-radius: 3px;
+                cursor: pointer;
+                color: white;
+                box-shadow: 0px 0px 5px;
+            }
+        }
+        .card.bottomCard {
+            margin-top: 50px;
+        }
+    }
+}
