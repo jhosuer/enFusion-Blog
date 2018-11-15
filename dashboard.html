@@ -25,14 +25,14 @@
                         <i class="fas fa-home"></i>
                         Dashboard
                     </a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <!-- <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="#">Home</a>
                         </li>
                         <li>
                             <a href="#">News Feed</a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </li>
                 <li class="active">
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -51,7 +51,7 @@
                         </li>
                     </ul>
                 </li>
-               <li>
+               <!-- <li>
                     <a href="#">
                         <i class="fas fa-images"></i>
                         Media
@@ -74,7 +74,7 @@
                         <i class="fas fa-sliders-h"></i>
                         Settings
                     </a>
-                </li>
+                </li> -->
             </ul>
 
             <ul class="list-unstyled CTAs">
@@ -110,7 +110,7 @@
                                 <a class="nav-link" href="#"><i class="fas fa-user-circle" id='navbarSupportedContentUser'></i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" id="navbarSupportedContentAnchor"><i class="fas fa-sign-out-alt"></i></a>
+                                <a class="nav-link" href="#" id="logout"><i class="fas fa-sign-out-alt" id="logtoutuser"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -125,7 +125,7 @@
                         <a href=""></a>
                     </div>
                     <div class="col-md-4 search">
-                        <input type="text" placeholder="filter posts">&nbsp;<button>Search</button>
+                        <input type="text" placeholder="filter posts" id="inputSearch">&nbsp;<button id="searchPosts">Search</button>
                     </div>
                 </div>
                 <div class="row postTable">
@@ -192,14 +192,10 @@
         <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
         <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
-        <script src="../node_modules/js-cookie/src/js.cookie.js"></script>
+        <script src="node_modules/js-cookie/src/js.cookie.js"></script>
+        <script src="js/jquery-cookie-master/jquery-cookie-master/src/jquery.cookie.js"></script>
         <script src="js/jquery.session.js"></script>
         <script src="js/main.js"></script>
-        
-        <script>
-//            $( "#chk" ).change(function() {
-//              alert($('#chk').val());
-//            }).change();
-            </script>
+        <script src="js/protect.js"> </script>
     </body>
 </html>

@@ -15,14 +15,22 @@ $(document).ready(function (){
     $('#updateButton').on('click',function(){
         title = $('#postTitle').val();
         message =  $('.card-body').val();
-        image = 'https://picsum.photos/200/300',
+        image = 'https://picsum.photos/200/300/',
         newData =  { postTitle: title, postMessage: message, postImage: image };
         $.ajax({
             url: path,
             method: "PUT",
             data: newData,
             success: function(data){
-                    alert('Hey');
+                     /* sweet alert starts here */
+                    swal({
+                        position: 'top-end',
+                        type: 'update success',
+                        title: 'Your post has been made',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    /* sweet alert ends here */
                 }
             
             });

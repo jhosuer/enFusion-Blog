@@ -1,5 +1,8 @@
 $(init);
 function init() {
+    // if(!localStorage.setItem('items', loginUserName)) {
+    //     windows.location.replace('index.html');
+    // } else {
 
     submitForm();
     changeFormToLogin();
@@ -9,6 +12,7 @@ function init() {
     getBlogData();
     whatTheLoginShows();
     logout();
+//}
 
 }
 
@@ -118,7 +122,8 @@ function loginToBlog() {
                         $.each(element, function (key, value) {
                             if ((userCount <= 1) && (element.user == loginUserName) && (element.pass == loginPassword)) {
                                 // alert(`${element.user} and ${key}`);
-                                Cookies.set('name', loginUserName);
+                                //Cookies.set('name', loginUserName);
+                                localStorage.setItem('items', loginUserName);
                                 userCount++;
                                 //function pageRedirect() {
                                 window.location.replace("dashboard.html");
@@ -196,8 +201,9 @@ $('#counter').on('input', function () {
 
 /* Login Functionalities */
 function whatTheLoginShows() {
-    let currentUserOnline = Cookies.get('name');
-    $('#userTag').append(currentUserOnline);
+    //let currentUserOnline = Cookies.get('name');
+    let existingUser = localStorage.getItem('items')
+    $('#userTag').append(existingUser);
 }
 
 
@@ -208,8 +214,8 @@ function savePostData() {
     $('#saveDraft').on('click', function savedraft() {
         title = $('#postTitle').val();
         message = $('.card-body').val();
-        image = 'https://picsum.photos/200/300';
-        blogData = { postTitle: title, postMessage: message, postImage: image };
+        image = 'https://picsum.photos/200/300/?random';
+        blogData = { postTitle: title, postMessage: message, postImage: image,userId:localStorage.getItem('items') };
         //event.preventDefault();
         $.post('http://localhost:3000/posts', blogData, function () {
             /* sweet alert starts here */
@@ -231,7 +237,7 @@ function savePostData() {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:3000/posts",
+        url: `http://localhost:3000/posts?userId=${localStorage.getItem('items')}`,
         dataType: "JSON",
         success: function (response) {
             let newResponse = response.reverse();
@@ -249,7 +255,7 @@ function savePostData() {
                         <input type="checkbox" class="chk" value='${title}'></td>
                     <td><a href='createpost.html?id=${id}'>${title}</a></td>
                     <td>
-                        ${Cookies.get('name')}</td><td>blog</td><td>blog,style,fashion,trends</td><td><button class="postDelete" id="${id}">del</button><i class="far fa-trash-alt"><a href='createpost.html?id=${id}'></i><button id="${id}" class="postEdit">edit</button></a><button id="postView" class="postView">view</button></td><td> ${currentdate.getDate()} 
+                        ${localStorage.getItem('items')}</td><td>blog</td><td>blog,style,fashion,trends</td><td><button class="postDelete" id="${id}">del</button><i class="far fa-trash-alt"><a href='createpost.html?id=${id}'></i><button id="${id}" class="postEdit">edit</button></a></td><td> ${currentdate.getDate()} 
                         ${currentdate.getMonth() + 1} ${currentdate.getFullYear()}
                     </td>
                     </tr>
@@ -298,98 +304,73 @@ function savePostData() {
                 });
                 return false;
             });
-
-            // $('.postEdit').on('click', function(){
-            //     $.ajax({
-
-            //         url: `http://localhost:3000/posts`,
-            //         method: 'get',
-            //         success: function (response) {
-            //             $.each(response, function(index,value){
-            //                 alert(value.id);
-            //             })
-                        
-            //         }
-                
-            //     });
-                    
-            // });
         }
-
     });
 }
 
 
-function edit(id){
-    $.ajax({
-        url: `http://localhost:3000/posts/id`,
-        method: 'get',
-        success: function (response) {
-            let EditTitle = value.postTitle;
-            let updateMessage = value.postMessage;
-            let blogTitle = $('#postTitle').val(EditTitle);
-            let blogMessage = $('.card-body').val(updateMessage);
+// function edit(id){
+//     $.ajax({
+//         url: `http://localhost:3000/posts/id`,
+//         method: 'get',
+//         success: function (response) {
+//             let EditTitle = value.postTitle;
+//             let updateMessage = value.postMessage;
+//             let blogTitle = $('#postTitle').val(EditTitle);
+//             let blogMessage = $('.card-body').val(updateMessage);
 
 
-             /* sweet alert starts here */
-                        swal({
-                            position: 'top-end',
-                            type: 'success',
-                            title: 'You can now update',
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
-                        /* sweet alert ends here */
-            $.ajax({
-                url: `http://localhost:3000/posts`,
-                method: 'put',
-                success: function (response) {
+//              /* sweet alert starts here */
+//                         swal({
+//                             position: 'top-end',
+//                             type: 'success',
+//                             title: 'You can now update',
+//                             showConfirmButton: false,
+//                             timer: 1500
+//                         })
+//                         /* sweet alert ends here */
+//             $.ajax({
+//                 url: `http://localhost:3000/posts`,
+//                 method: 'put',
+//                 success: function (response) {
                    
-                    // blogData = { postTitle: title, postMessage: message};
+//                     // blogData = { postTitle: title, postMessage: message};
 
-                    // $('#saveDraft').on('click', function savedraft() {
+//                     // $('#saveDraft').on('click', function savedraft() {
 
-                    //     /* sweet alert starts here */
-                    //     swal({
-                    //         position: 'top-end',
-                    //         type: 'success',
-                    //         title: 'Your post has been made',
-                    //         showConfirmButton: false,
-                    //         timer: 1500
-                    //     })
-                    //     /* sweet alert ends here */
-                    // }
+//                     //     /* sweet alert starts here */
+//                     //     swal({
+//                     //         position: 'top-end',
+//                     //         type: 'success',
+//                     //         title: 'Your post has been made',
+//                     //         showConfirmButton: false,
+//                     //         timer: 1500
+//                     //     })
+//                     //     /* sweet alert ends here */
+//                     // }
 
 
                     
-                }
-            })
-        }
-    });
-};
+//                 }
+//             })
+//         }
+//     });
+// };
 
 function logout() {
-    $('#logout').click(function(){
-        Cookies.set('name','');
-        window.location.replace='../index.html';
+    $('#logout').on('click',function(){
+        localStorage.clear();
+        window.location.replace("index.html");
     });
 }
 
 function getBlogData() {
-    //    loginToBlog();
-    //    savePostData();
-    //    let currentdate = new Date();
-    //    let postDisplay = $('.postTable table tbody').append('<tr><td>'+ postTitle + '</td><td>Admin</td><td>blog</td><td>blog,style,fashion,trends</td><td></td><td>'+currentdate.getDate() + "/"+ 
-    //     (currentdate.getMonth()+1)  + "/" + currentdate.getFullYear()+ '</td>');
-    //    
-    //      $.get('http://localhost:3000/posts',function(data){
-    //                $.each(data, function(index,element){
-    //                    $.each(element, function(key,value){
-    //                        postDisplay;
-    //                    });
-    //
-    //                });   
-    //      });
+    $('#inputSearch').on('keyup',function(){
+        let value = $(this).val().toLowerCase();
+        $('.postTable table tbody').filter(function(){
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
 
 }
 
